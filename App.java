@@ -30,37 +30,38 @@ public class App extends Application {
         Application.launch(args);
     }
 
-    public static String encrypt(String plaintext, String key) {
+        public String encrypt(String plaintext, String key) {
 
-        if (Pattern.matches("[a-zA-Z0-9 ]+", plaintext)) {
-            char[] plaintextArray = plaintext.replaceAll(" ", "").toCharArray();
-            String[] splitedKey = key.split(" ");
+            if (Pattern.matches("[a-zA-Z0-9 ]+", plaintext)) {
+                char[] plaintextArray = plaintext.replaceAll(" ", "").toCharArray();
+                String[] splitedKey = key.split(" ");
 
-            StringBuilder getLetters = new StringBuilder();
-            for (int i = 0; i < splitedKey.length; i++) {
-                getLetters.append(splitedKey[i].charAt(0));
-            }
-
-            ArrayList<Integer> tempciphertext = new ArrayList<>();
-            StringBuilder ciphertext = new StringBuilder();
-            for (int i = 0; i < plaintextArray.length; i++) {
-                for (int j = 0; j < getLetters.length(); j++) {
-                    if (plaintextArray[i] == getLetters.charAt(j)) {
-                        tempciphertext.add(j + 1);
-                    }
+                StringBuilder getLetters = new StringBuilder();
+                for (int i = 0; i < splitedKey.length; i++) {
+                    getLetters.append(splitedKey[i].charAt(0));
                 }
-                int index = (int) (Math.random() * tempciphertext.size());
-                ciphertext.append(tempciphertext.get(index));
-                ciphertext.append(" ");
-                tempciphertext.clear();
-            }
-            return String.valueOf(ciphertext);
-        } else {
-            return "You can't encrypt special characters!";
-        }
-    }
 
-    public String readFile() {
+                ArrayList<Integer> tempciphertext = new ArrayList<>();
+                StringBuilder ciphertext = new StringBuilder();
+                for (int i = 0; i < plaintextArray.length; i++) {
+                    for (int j = 0; j < getLetters.length(); j++) {
+                        if (plaintextArray[i] == getLetters.charAt(j)) {
+                            tempciphertext.add(j + 1);
+                        }
+                    }
+                    int index = (int) (Math.random() * tempciphertext.size());
+                    ciphertext.append(tempciphertext.get(index));
+                    ciphertext.append(" ");
+                    tempciphertext.clear();
+                }
+                return  String.valueOf(ciphertext);
+            } else {
+                return "You can't encrypt special characters!";
+            }
+        }
+
+
+        public String readFile() {
 
         String addNumber = "";
         try {
@@ -165,7 +166,7 @@ public class App extends Application {
         gridPane.add(encryptedTextArea, 1, 3, 2, 1);
 
         encryptButton.setOnAction(e -> {
-            encryptedTextArea.setText(encrypt(encryptTextArea.getText(), readFile()));
+            encryptedTextArea.setText(encrypt(encryptTextArea.getText().toLowerCase(), readFile()));
         });
 
         clearButton.setOnAction(new ClearEncryptButtonEventHandler());
@@ -222,7 +223,7 @@ public class App extends Application {
         gridPane.add(decryptedTextArea, 1, 3, 2, 1);
 
         decryptButton.setOnAction(e -> {
-            decryptedTextArea.setText(decrypt(decryptTextArea.getText(), readFile()));
+            decryptedTextArea.setText(decrypt(decryptTextArea.getText().toLowerCase(), readFile()));
         });
 
         clearButton.setOnAction(new clearDecryptButtonEventHandler());
