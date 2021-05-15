@@ -20,7 +20,7 @@ public class Decrypt {
                     }
                 }
             }
-            return "Decrypted text: " + (plaintext);
+            return "\nDecrypted text: " + (plaintext);
         } else {
             return "The ciphertext you want to decrypt should only contain numbers!";
         }

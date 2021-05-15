@@ -28,7 +28,7 @@ public class Encrypt {
                 ciphertext.append(" ");
                 tempciphertext.clear();
             }
-            return "Encrypted text: " + ciphertext;
+            return "\nEncrypted text: " + ciphertext;
         } else {
             return "You can't encrypt special characters!";
         }

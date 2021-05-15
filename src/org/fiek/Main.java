@@ -11,28 +11,28 @@ public class Main {
         Scanner input = new Scanner(System.in);
         System.out.print("\n---This is the Beale Ciphers encryption/decryption algorithm that uses a text document as a book!---\n");
 
-        while (true) {
-            System.out.print("\nYou can type encrypt for encryption, decrypt for decryption or stop to stop the running program: ");
-            String answer = input.nextLine().toLowerCase();
-            answer = answer.replaceAll(" ", "");
-            //String answer=args[0].replaceAll(" ","");
+        //while (true) {
+            //System.out.print("\nYou can type encrypt for encryption, decrypt for decryption or stop to stop the running program: ");
+            //String answer = input.nextLine().toLowerCase();
+            //answer = answer.replaceAll(" ", "");
+            String answer=args[0].replaceAll(" ","");
             if (answer.equals("encrypt")) {
-                System.out.println("You chose encryption");
+                System.out.println("\nYou chose encryption\n");
                 System.out.print("Enter the text you want to encrypt: ");
                 String plaintext = input.nextLine().toLowerCase();
                 System.out.println(Encrypt.encrypt(plaintext, readFile()));
             } else if (answer.equals("decrypt")) {
-                System.out.println("You chose decryption");
+                System.out.println("\nYou chose decryption\n");
                 System.out.print("Enter the text you want to decrypt: ");
                 String ciphertext = input.nextLine().toLowerCase();
                 System.out.println(Decrypt.decrypt(ciphertext, readFile()));
-            } else if (answer.equals("stop")) {
-                System.out.println("\nThe program is stopping...");
-                break;
-            } else {
-                System.out.print("You must only type encrypt, decrypt or stop!\n");
+            } //else if (answer.equals("stop")) {
+                //System.out.println("\nThe program is stopping...");
+                //break;}
+              else {
+                System.out.print("\nYou must only type encrypt, decrypt!\n");
             }
-        }
+        //}
         input.close();
     }
 
