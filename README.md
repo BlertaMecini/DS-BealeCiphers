@@ -7,32 +7,46 @@ Beale Ciphers (ose Beale Papers) janë një tërësi prej tre tekstesh shifrore,
 
 ## Algoritmi 
 Algoritmi i Beale përdor një variant të book cipher. E zgjedhim një tekst të gjatë si çelës, numërojmë secilën nga fjalët në tekst në mënyrë sekuenciale, duke filluar nga 1. Për enkriptim të plaintekstit krahasojmë secilën shkronjë të tij me shkronjën e parë të secilës fjalë të tekstit. Aty ku përputhen shkronjat e marrim numrin që i përket asaj fjale. Për shembull, nëse teksti qelës është "now is the time" dhe plainteksti është "tin", atëherë ose (3 2 1) ose (4 2 1) janë enkriptime të vlefshme.Nëse teksti çelës është i gjatë, do të ketë shumë duplikate, siç pamë me shkronjën "t",  prandaj kur enkriptojmë e marrim shkronjën e njëjtë në mënyrë të rëndomtë, gjë që e bënë algoritmin më të sigurtë. Sa i përket dekriptimit krahasojmë numrat e dhënë në ciphertekst me secilin numër të fjalëve të dokumentit, dhe ku kemi përputhje të numrave e marrim shkronjën e parë të asaj fjale të tekstit.
+
 Pjesa e shkëputur e kodit në të cilën demonstrohet enkriptimi.
 ![image](https://user-images.githubusercontent.com/75573960/118408776-4a667180-b687-11eb-95ab-08c92a9b6f09.png)
+
 Pjesa e shkëputur e kodit në të cilën demonstrohet dekriptimi.
 ![image](https://user-images.githubusercontent.com/75573960/118408869-c1036f00-b687-11eb-8583-184f5f211232.png)
 
 ## Kompajllimi  me Command Prompt
 Kompajllimi mund të bëhet përmes komandës 'javac' e më pas t'i jepet path-i ku e kemi të ruajtur kodin burimor si dhe '-d' për të krijuar folderin ku do të ruhet klasa që krijohet me rastin e kompajllimit.Pasi të kompajllohet mund ta ekzekutojmë programin përmes komandës 'java' në këtë rast ia japim path-in e plotë dhe argumentin(encrypt ose decrypt që janë case insensitive).Varësisht nga argumenti i zgjedhur duhet t'i jepet ose plainteksti ose cipherteksti.
+
 ![image](https://user-images.githubusercontent.com/75573960/118409035-c9a87500-b688-11eb-8147-4623d013cf60.png)
-Nëse jepet ndonjë argument tjetër përveq encrypt/decrypt do të shfaqet mesazhi si më poshtë.
+
+Nëse jepet ndonjë argument tjetër përveq encrypt/decrypt do të shfaqet mesazhi si më poshtë:
 ![image](https://user-images.githubusercontent.com/75573960/118409472-ee055100-b68a-11eb-97a7-542444567897.png)
 
 ## Validimi dhe testimi
 Në kuadër të këtij programi janë realizuar edhe disa validime si psh në pjesën e enkriptimit nuk mund të enkriptojmë ndonjë karakter special ose vetëm hapësira, ndërsa te dekriptimi nuk mund të dekriptojmë karaktere tjera përveq numrave.
+
 Pjesa e validimit te enkriptimi:
+
 ![image](https://user-images.githubusercontent.com/75573960/118409668-e7c3a480-b68b-11eb-87cb-85100c8c416c.png)
+
 Pjesa e validimit te dekriptimi:
+
 ![image](https://user-images.githubusercontent.com/75573960/118409685-0b86ea80-b68c-11eb-969b-df9b8dc6efea.png)
+
 Testimi:
+
 ![image](https://user-images.githubusercontent.com/75573960/118409728-2fe2c700-b68c-11eb-87c4-a97cdabc0cfe.png)
 
 ## Desktop app
 Ky program është realizuar edhe si desktop aplikacion me një GUI të thjeshtë duke përdorur javafx.
+
 Ky GUI duket si në fotot më poshtë:
+
 ![image](https://user-images.githubusercontent.com/75573960/118409932-2dcd3800-b68d-11eb-9eea-254f8cdd8d03.png)
 ![image](https://user-images.githubusercontent.com/75573960/118409954-55240500-b68d-11eb-9d9b-ee3f82115aee.png)
+
 Paraqitja e mesazhit të gabimit nëse jepet hyrje jovalide në pjesën përkatëse:
+
 ![image](https://user-images.githubusercontent.com/75573960/118410115-235f6e00-b68e-11eb-9ae7-aaa3c6cbfa0b.png)
 ![image](https://user-images.githubusercontent.com/75573960/118410132-3a05c500-b68e-11eb-9f29-b50de9495608.png)
 
