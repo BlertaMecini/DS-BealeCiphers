@@ -12,10 +12,13 @@ public class Main {
         System.out.print("\n---This is the Beale Ciphers encryption/decryption algorithm that uses a text document as a book!---\n");
 
         //while (true) {
-            //System.out.print("\nYou can type encrypt for encryption, decrypt for decryption or stop to stop the running program: ");
-            //String answer = input.nextLine().toLowerCase();
-            //answer = answer.replaceAll(" ", "");
-            String answer=args[0].replaceAll(" ","");
+        //System.out.print("\nYou can type encrypt for encryption, decrypt for decryption or stop to stop the running program: ");
+        //String answer = input.nextLine().toLowerCase();
+        //answer = answer.replaceAll(" ", "");
+        if (args.length == 0) {
+            System.out.println("\nYou didn't give any arguments. You must give the argument encrypt or decrypt to procced.");
+        } else {
+            String answer = args[0].toLowerCase();
             if (answer.equals("encrypt")) {
                 System.out.println("\nYou chose encryption\n");
                 System.out.print("Enter the text you want to encrypt: ");
@@ -27,13 +30,14 @@ public class Main {
                 String ciphertext = input.nextLine().toLowerCase();
                 System.out.println(Decrypt.decrypt(ciphertext, readFile()));
             } //else if (answer.equals("stop")) {
-                //System.out.println("\nThe program is stopping...");
-                //break;}
-              else {
-                System.out.print("\nYou must only type encrypt, decrypt!\n");
+            //System.out.println("\nThe program is stopping...");
+            //break;}
+            else {
+                System.out.print("\nYou must only type encrypt or decrypt!\n");
             }
-        //}
-        input.close();
+            //}
+            input.close();
+        }
     }
 
 

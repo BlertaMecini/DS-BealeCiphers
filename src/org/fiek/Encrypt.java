@@ -5,6 +5,9 @@ import java.util.regex.Pattern;
 
 public class Encrypt {
     public static String encrypt(String plaintext, String key) {
+        if (plaintext.length() == 0) {
+            return "\nYou must type the plaintext you want to encrypt.";
+        }
 
         if (Pattern.matches("[a-zA-Z0-9 ]+", plaintext)) {
             char[] plaintextArray = plaintext.replaceAll(" ", "").toCharArray();
@@ -30,7 +33,7 @@ public class Encrypt {
             }
             return "\nEncrypted text: " + ciphertext;
         } else {
-            return "You can't encrypt special characters!";
+            return "\nYou can't encrypt special characters!";
         }
     }
 }
